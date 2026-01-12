@@ -6,21 +6,27 @@ import random
 import redis
 
 # Redis connection
+# def get_redis_client():
+#     # Password None ho to without password connect hoga
+#     redis_config = {
+#         "host": settings.REDIS_HOST,
+#         "port": settings.REDIS_PORT,
+#         "db": settings.REDIS_DB,
+#         "decode_responses": True
+#     }
+    
+#     # Only add password if it exists
+#     if settings.REDIS_PASSWORD:
+#         redis_config["password"] = settings.REDIS_PASSWORD
+    
+#     return redis.Redis(**redis_config)
 def get_redis_client():
-    # Password None ho to without password connect hoga
-    redis_config = {
-        "host": settings.REDIS_HOST,
-        "port": settings.REDIS_PORT,
-        "db": settings.REDIS_DB,
-        "decode_responses": True
-    }
+    return redis.from_url(
+        settings.REDIS_URL,
+        decode_responses=True
+    )
     
-    # Only add password if it exists
-    if settings.REDIS_PASSWORD:
-        redis_config["password"] = settings.REDIS_PASSWORD
     
-    return redis.Redis(**redis_config)
-
 def generate_otp():
     return str(random.randint(100000, 999999))
 
