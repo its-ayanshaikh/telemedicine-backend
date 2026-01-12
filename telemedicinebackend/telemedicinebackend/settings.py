@@ -55,6 +55,12 @@ CORS_ALLOWED_ORIGINS = [
     "https://telemedicine-theta.vercel.app",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://telemedicine-production.up.railway.app",
+    "https://telemedicine-theta.vercel.app",
+    "https://b93e810dbec1.ngrok-free.app",
+]
+
 from corsheaders.defaults import default_headers, default_methods
 CORS_ALLOW_HEADERS = list(default_headers) + ["authorization", "content-type"]
 
