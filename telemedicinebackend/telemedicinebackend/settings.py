@@ -154,9 +154,7 @@ WSGI_APPLICATION = 'telemedicinebackend.wsgi.application'
 AUTH_USER_MODEL = 'Authentication.User'
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
-    )
+    'default': dj_database_url.config
 }
 
 # DATABASES = {
