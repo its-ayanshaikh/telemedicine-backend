@@ -154,9 +154,8 @@ WSGI_APPLICATION = 'telemedicinebackend.wsgi.application'
 AUTH_USER_MODEL = 'Authentication.User'
 
 DATABASES = {
-    'default': dj_database_url.config
+    'default': dj_database_url.config()
 }
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
